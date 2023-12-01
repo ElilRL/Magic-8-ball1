@@ -1,61 +1,71 @@
-var userName= "";
-userName ? console.log("Hello, " + userName + "!") : console.log("Hello!")
+let compChoice;
+let userChoice;
+let randomNum = 5;
 
-var userQuestion = "Sure"
-userQuestion ? console.log("Wanna play a game?," + userQuestion + "!") : console.log("Wanna play agame?")
 
-// Generate a random number between 0 and 2
-var user= "";
-
-var randomNumber = Math.floor(Math.random() * 3);
-
-if (randomNumber === 0) {
-    user = 'Rock';
-} else if (randomNumber === 1) {
-    user = 'Paper';
-} else if (randomNumber === 2) {
-    user = 'scissors';
+// Random Numbers (Inclusive 0-Exclusive range)
+// FUNCTION: Generate a random number between 0 and 3
+function getRandomNum(low, high){
+    return Math.floor(Math.random() * (high - low)) + low;
 }
-console.log("Your pick: ", user)
-
-var computer="";
-
-
-var randomNumber = Math.floor(Math.random() * 3);
-
-if (randomNumber === 0) {
-    computer = 'Rock';
-} else if (randomNumber === 1) {
-    computer = 'Paper';
-} else if (randomNumber === 2) {
-    computer = 'scissors';
-}
-console.log("computer pick: ", computer)
+// include 3 exclude 10
+// 3 - 9
+3 - 10
+0.7
 
 
-switch(choice){
-    case 0:
-        user = "rock";
-        break;
-    case 1:
-        user = "paper";
-        break;
-   case 2:
-            user = "scissors";
+randomNum = getRandomNum(0,3);
+// TEST:
+console.log(randomNum);
+
+
+// Switch statements
+function chooseMove(){
+    switch(RandomNum){
+        case 0:
+            return  "rock";
             break;
-    default:
-        user = "error";
-        break;
+        case 1:
+            return  "paper";
+            break;
+        case 2:
+            return  "scissors";
+            break;
+        default:
+            return  "error";
+            break;
+             
+    }
 }
-
-console.log("Comp Choice: " + compChoice);
-
-
-var winner;
-
-if(userChoice === "rock" && compChoice === "paper"){
-    winner = "computer";
-} else if (userChoice === "paper" && compChoice === "rock"){
-    winner = "user";
+// Comparisons
+if (randomNumber === 0) {
+    eightBall = 'It is cartain';
+} else if (randomNumber === 1) {
+    eightBall = 'It is decidedly so';
+} else if (randomNumber === 2) {
+    eightball = 'Reply hazy try again';
+} else if (randomNumber === 3) {
+    eightBall = 'Cannot predict now';
+} else if (randomNumber === 4) {
+    eightBall = 'Do not count on it';
+} else if (randomNumber === 5) {
+    eightBall = 'My sources say no';
+} else if (randomNumber === 6) {
+    eightBall = 'Outlook not so good';
+} else if (randomNumber === 7) {
+    eightBall = 'Signs point to yes';
 }
-/// 
+// console Logs
+
+
+//PLAY!
+userChoice = chooseMove(getRandomNum(0,3));
+console.log ("User Chose: " + userChoice);
+
+
+compChoice = chooseMove(getRandomNum(0,3));
+console.log("Computer Chose: " + compChoice);
+
+
+winner = determineWinner();
+console.log("The winner is..." + winner);
